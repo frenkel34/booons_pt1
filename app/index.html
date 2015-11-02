@@ -1,0 +1,241 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Quicksand:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="fonts/Flaticon/flaticon.css"> 
+        <style>
+            body {
+                font-family: 'Quicksand', sans-serif;;
+            }
+            .objHeader{
+                display:block;
+                font-weight: 300;
+                color: lightgrey;
+                text-align: left;
+            }
+            .objIntro{
+                font-size: 50%;
+                color: lightgrey;
+                text-align: left;
+                margin-bottom: 15vw;
+            }
+            .objPage {
+                display:none;
+            }
+            #pagStart {
+                display:block;
+            }
+            .objLoader{
+                width:100vw;
+                text-align: center;
+            }
+            .objFormIcon{
+                float:left;
+                height: 25px;
+            }
+            .objFormElement input{
+                font-family: inherit;
+                height: 10vw;
+                border-width: 0px;
+                outline: 0;
+                margin-left: 5vw;
+                font-size: 15px;
+                padding: 0;
+            }
+            .objTextField{
+                width:100%;  
+                margin-bottom: 15vw;
+            }
+            .objForm {
+                width:100vw;
+            }
+            .objFormSubmit{
+                width:100vw;
+                text-align: center;
+            }
+            .objFooter {
+                position:fixed;
+                bottom:0;
+                text-align: center;
+                width:100vw;
+                font-size: 15vw;
+
+            }
+            .objOption{
+                float:right;
+                text-align:center;
+                margin: 5vw;
+            }
+            .lnr-large{
+                font-size: 40vw;   
+            }
+            .lnr-medium{
+                font-size: 10vw;
+            }
+            .objList{
+                width:100vw;
+                text-align: center;
+                float:left;    
+                margin-top: 5vw;
+            }
+            .lstOption{
+                text-align: center;
+                margin:5vw;
+                display:inline-block;
+                text-align: left;
+            }
+            .lstFullWidth{
+                width:100vw;
+                margin:1vw;
+            }
+            .lstLabel{
+                font-size: 15px;   
+                vertical-align: middle;
+                color: black;
+            }
+            .lnr-alt{
+                color: lightgrey;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="pagStart" class="objPage">
+            <div class="objHeader">start</div>
+            <div class="objIntro">This is a loading page that will continue by itself, click the logo to continue for now...</div>
+            <div class="objLoader lnkPage" targetPage="Login"><icon class="lnr lnr-large lnr-heart" /></div>
+            <div class="objFooter">
+                <div class="objOption lnkPage" targetPage="Login"><icon class="lnr lnr-medium lnr-chevron-right" /></div>
+            </div>
+        </div>
+        <div id="pagLogin" class="objPage">
+            <div class="objHeader">login page</div>
+            <div class="objIntro">This is the page where users login with a name and to a group...</div>
+            <div class="objForm">
+                <div class="objTextField">
+                    <div class="objFormIcon"><icon class="lnr lnr-medium lnr-user" /></div>
+                    <div class="objFormElement"><input class="frmLogin" id="frmUsername" type="text" placeholder=""/></div>
+                </div>
+                <div class="objTextField">
+                    <div class="objFormIcon"><icon class="lnr lnr-medium lnr-cloud" /></div>
+                    <div class="objFormElement"><input class="frmLogin"  id="frmGroup" type="text" placeholder=""/></div>
+                </div>
+            </div>
+            <div class="objFooter">
+                <div class="objOption lnkPage" targetPage="IdleGroup"><icon class="lnr lnr-medium lnr-cloud-upload" /></div>
+            </div>
+        </div>
+        <div id="pagIdleGroup" class="objPage">
+            <div class="objHeader">Idle Group page</div>
+            <div class="objIntro">This is the page for a group where nothing is happening...</div>
+            <div class="objLoader lnkPage" targetPage="PlayRound"><icon class="lnr lnr-large lnr-coffee-cup" /></div>
+            <div class="objFooter">
+                <div class="objOption lnkPage" targetPage="Login"><icon class="lnr lnr-medium lnr-cloud-download" /></div>
+                <div class="objOption lnkPage" targetPage="Settings"><icon class="lnr lnr-medium lnr-cog" /></div>
+            </div>
+        </div>
+        <div id="pagSettings" class="objPage">
+            <div class="objHeader">Settings</div>
+            <div class="objIntro">This is not yet an option...</div>
+            <div class="objLoader lnkPage" targetPage="Login"><icon class="lnr lnr-large lnr-poop" /></div>
+            <div class="objFooter">
+                <div class="objOption lnkPage" targetPage="Login"><icon class="lnr lnr-medium lnr-cloud-download" /></div>
+                <div class="objOption lnkPage" targetPage="IdleGroup"><icon class="lnr lnr-medium lnr-undo" /></div>
+            </div>
+        </div>
+        <div id="pagPlayRound" class="objPage">
+            <div class="objHeader">Want to play?</div>
+            <div class="objIntro">This screen selects the players for the round...</div>
+            <div class="objLoader lnkPage" targetPage="Login"><icon class="lnr lnr-large lnr-coffee-cup" /></div>
+            <div class="objList">
+                <div class="lstOption lnkPage" targetPage="SelectProduct"><icon class="lnr lnr-medium lnr-checkmark-circle" /></div>
+                <div class="lstOption lnkPage" targetPage="IdleGroup"><icon class="lnr lnr-medium lnr-cross-circle" /></div>
+            </div>
+        </div>
+        <div id="pagSelectProduct" class="objPage">
+            <div class="objHeader">What do you want to drink?</div>
+            <div class="objIntro">This screen selects the product for the round...</div>
+            <div class="objLoader lnkPage" targetPage="Login"><icon class="lnr lnr-large lnr-question-circle" /></div>
+            <div class="objList">
+                <div class="lstOption lnkPage" targetPage="SelectAmbush"><icon class="lnr lnr-medium lnr-coffee-cup" /></div>
+                <div class="lstOption lnkPage" targetPage="SelectAmbush"><icon class="lnr lnr-medium lnr-drop" /></div>
+                <div class="lstOption lnkPage" targetPage="SelectAmbush"><icon class="lnr lnr-medium lnr-rocket" /></div>
+                <div class="lstOption lnkPage" targetPage="SelectAmbush"><icon class="lnr lnr-medium lnr-poop" /></div>
+            </div>
+            <div class="objFooter">
+                <div class="objOption lnkPage" targetPage="IdleGroup"><icon class="lnr lnr-medium lnr-smile" /></div>
+            </div>
+        </div>
+        <div id="pagSelectAmbush" class="objPage">
+            <div class="objHeader">Want to bug anyone?</div>
+            <div class="objIntro">This screen selects the ambushes for the round...</div>
+            <div class="objLoader">"<icon class="lnr lnr-large lnr-bug" /></div>
+            <div class="objList">
+                <div class="lstOption lnkPage lstFullWidth" targetPage="SelectAmbush">
+                    <icon class="lnr lnr-medium lnr-bug" />
+                    <icon class="lnr lnr-medium lnr-bug" />
+                    <icon class="lnr lnr-medium lnr-alt lnr-bug" />
+                    <label class="lstLabel">Frank</label>
+                </div>
+                <div class="lstOption lnkPage lstFullWidth" targetPage="SelectAmbush">
+                    <icon class="lnr lnr-medium lnr-alt lnr-bug" />
+                    <icon class="lnr lnr-medium lnr-alt lnr-bug" />
+                    <icon class="lnr lnr-medium lnr-alt lnr-bug" />
+                    <label class="lstLabel">Anouk</label>
+                </div>
+            </div>
+            <div class="objFooter">
+                <div class="objOption lnkPage" targetPage="IdleGroup"><icon class="lnr lnr-medium lnr-cloud-check" /></div>
+            </div>
+        </div>
+
+            
+        <script>
+            function writeLog(sMessage){
+                if (1 != 2) {
+                    console.log("writeLog: " + sMessage);
+                }
+            }
+            function rotatePlaceholder(eFormElement, aValues) {
+                    $.each(aValues, function(i, val) {
+                                setTimeout(function() {
+                                    eFormElement.attr("placeholder", val);
+                                }, i * 1000);
+                            });
+                
+                
+            }
+            
+            
+            $(".lnkPage").click(function(){
+                var sTargetPage = $(this).attr('targetPage');
+                // Page specific functions
+                if (sTargetPage == "Login") {
+                    writeLog("Wel placeholder aanzetten");
+                    var eUserTextbox = $("#frmUsername");
+                    if (eUserTextbox.val() == "") {
+                        var aUsernames = ["Frank", "Anouk", "Jeremy", ""];
+                        rotatePlaceholder(eUserTextbox, aUsernames);                        
+                    }
+                    var eUserTextbox = $("#frmGroup");
+                    if (eUserTextbox.val() == "") {
+                        var aGroupnames = ["Amsterdam", "Apple HQ", "Home", ""];
+                        rotatePlaceholder(eUserTextbox, aGroupnames);
+                    }
+                } else {
+                    writeLog("Niet placeholder aanzetten");                    
+                };
+                writeLog("Showing page " + sTargetPage);
+                $(".objPage").hide();
+                $("#pag"+sTargetPage).show();
+            });
+            
+        </script>
+
+    </body>
+</html>
+
+
